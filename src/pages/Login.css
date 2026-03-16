@@ -1,0 +1,906 @@
+/* Main Container */
+.login-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+}
+
+/* ==================== HEADER SECTION ==================== */
+.login-header {
+  padding: 3rem 1rem 2rem;
+  text-align: center;
+}
+
+.logo-large {
+  font-size: 3rem;
+  font-weight: 700;
+}
+
+.logo-large-eco {
+  color: #4a5fc1;
+}
+
+.logo-large-cash {
+  color: #e63946;
+}
+
+/* ==================== LOGIN FORM SECTION ==================== */
+.login-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 1rem;
+}
+
+.login-title {
+  font-size: 1.5rem;
+  color: #666;
+  margin-bottom: 2.5rem;
+  font-weight: 500;
+}
+
+.login-form {
+  width: 100%;
+  max-width: 400px;
+}
+
+/* ==================== SERVER STATUS MESSAGES ==================== */
+.server-status-message {
+  padding: 16px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 14px;
+  animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.server-status-message.checking {
+  background-color: #fff3cd;
+  color: #856404;
+  border: 1px solid #ffeaa7;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.server-status-message.error {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+.status-spinner {
+  width: 20px;
+  height: 20px;
+  border: 3px solid #856404;
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+.status-subtext {
+  font-size: 12px;
+  opacity: 0.8;
+  margin: 0;
+}
+
+/* Phone Number Input */
+.phone-input-container {
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.phone-input {
+  width: 100%;
+  padding: 1rem;
+  padding-left: 5.5rem;
+  border: 2px solid #0066cc;
+  border-radius: 8px;
+  font-size: 1rem;
+  color: #333;
+  transition: border-color 0.2s, opacity 0.2s;
+  line-height: 1.5;
+}
+
+.phone-input:focus {
+  outline: none;
+  border-color: #0052a3;
+}
+
+.phone-input:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background-color: #f5f5f5;
+}
+
+.country-code {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 1rem;
+  color: #333;
+  pointer-events: none;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.flag-icon {
+  font-size: 1.2rem;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+}
+
+/* PIN Section */
+.pin-section {
+  margin-bottom: 1.5rem;
+}
+
+.pin-label {
+  text-align: center;
+  color: #888;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.pin-inputs-wrapper {
+  position: relative;
+  margin-bottom: 0.5rem;
+}
+
+.pin-inputs {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.pin-box {
+  width: 60px;
+  height: 60px;
+  border: 2px solid #0066cc;
+  border-radius: 8px;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #333;
+  transition: border-color 0.2s, opacity 0.2s;
+}
+
+.pin-box:focus {
+  outline: none;
+  border-color: #0052a3;
+  box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.1);
+}
+
+.pin-box:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background-color: #f5f5f5;
+}
+
+/* When PIN is hidden (password type) */
+.pin-box[type="password"] {
+  font-size: 2rem;
+  letter-spacing: 0.5rem;
+}
+
+.eye-button {
+  position: absolute;
+  right: -40px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.3rem;
+  color: #666;
+  padding: 0.5rem;
+  transition: color 0.2s, opacity 0.2s;
+}
+
+.eye-button:hover:not(:disabled) {
+  color: #0066cc;
+}
+
+.eye-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.forgot-pin {
+  text-align: center;
+  color: #888;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.forgot-pin:hover {
+  color: #0066cc;
+}
+
+/* Login Button */
+.login-button {
+  width: 100%;
+  padding: 1rem;
+  background: linear-gradient(135deg, #0066cc 0%, #0052a3 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s, opacity 0.2s;
+  margin-top: 1.5rem;
+}
+
+.login-button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 102, 204, 0.3);
+}
+
+.login-button:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.login-button:disabled {
+  background: #cccccc;
+  cursor: not-allowed;
+  transform: none;
+  opacity: 0.6;
+}
+
+/* Button state variants */
+.login-button.waiting {
+  background: linear-gradient(135deg, #ffc107 0%, #ff9800 100%);
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.7;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.login-button.error {
+  background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
+}
+
+/* ==================== FOOTER SECTION ==================== */
+.login-footer {
+  background: #0066cc;
+  padding: 6.5rem 1rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Wave decoration */
+.wave-decoration {
+  position: absolute;
+  top: -50px;
+  left: 0;
+  right: 0;
+  height: 100px;
+  background: white;
+  border-radius: 0 0 50% 50%;
+}
+
+.footer-content {
+  position: relative;
+  z-index: 1;
+}
+
+.footer-text {
+  color: white;
+  font-size: 0.95rem;
+  margin-bottom: 1.5rem;
+}
+
+.footer-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+}
+
+.footer-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: white;
+  color: #0066cc;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.footer-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.version-text {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.85rem;
+  margin-bottom: 0.5rem;
+}
+
+.terms-text {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.8rem;
+}
+
+.terms-link {
+  color: white;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.terms-link:hover {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* ==================== PROCESSING MODAL ==================== */
+.processing-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.processing-modal {
+  background: white;
+  border-radius: 16px;
+  padding: 3rem 4rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  animation: slideUp 0.3s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.processing-spinner {
+  width: 60px;
+  height: 60px;
+  border: 5px solid #e0e0e0;
+  border-top: 5px solid #0066cc;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.processing-text {
+  font-size: 1.1rem;
+  color: #333;
+  font-weight: 500;
+  margin: 0;
+}
+
+/* ==================== MOBILE RESPONSIVE ==================== */
+@media (max-width: 600px) {
+  .logo-large {
+    font-size: 2.5rem;
+  }
+
+  .login-title {
+    font-size: 1.3rem;
+  }
+
+  .pin-box {
+    width: 50px;
+    height: 50px;
+    font-size: 1.3rem;
+  }
+
+  .pin-inputs {
+    gap: 0.75rem;
+  }
+
+  .eye-button {
+    right: -35px;
+  }
+
+  .footer-buttons {
+  display: inline-flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+  }
+
+  .footer-button {
+    justify-content: center;
+  }
+
+  .server-status-message {
+    font-size: 13px;
+    padding: 12px;
+  }
+}
+
+/* Add these styles to your existing Login.css file */
+
+/* Warning Modal Styles */
+.warning-modal {
+  background: white;
+  border-radius: 16px;
+  padding: 32px 24px;
+  max-width: 400px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  animation: slideUp 0.3s ease-out;
+}
+
+.warning-icon {
+  font-size: 48px;
+  margin-bottom: 16px;
+  animation: pulse 1s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+.warning-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 16px;
+}
+
+.warning-message {
+  font-size: 16px;
+  color: #666;
+  line-height: 1.5;
+  margin-bottom: 12px;
+}
+
+.warning-hint {
+  font-size: 14px;
+  color: #E94D1E;
+  background: #FFF5F3;
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 24px;
+  line-height: 1.5;
+}
+
+.warning-hint strong {
+  font-weight: 600;
+}
+
+.warning-buttons {
+  display: flex;
+  justify-content: center;
+}
+
+.warning-button {
+  min-width: 120px;
+  padding: 14px 32px;
+  border: none;
+  border-radius: 25px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.warning-button.okay {
+  background: linear-gradient(135deg, #E94D1E 0%, #D43D0E 100%);
+  color: white;
+}
+
+.warning-button.okay:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(233, 77, 30, 0.3);
+}
+
+.warning-button.okay:active {
+  transform: translateY(0);
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ==================== PROCESSING SCREEN (FULL) ==================== */
+.processing-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  width: 90%;
+  padding: 3rem 2.5rem;
+  text-align: center;
+}
+
+.spinner-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.spinner {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #6b7fd7 0%, #8b9fe8 100%);
+  position: relative;
+  animation: pulse-spinner 2s ease-in-out infinite;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.spinner::before {
+  content: '';
+  position: absolute;
+  width: 70px;
+  height: 70px;
+  border: 4px solid white;
+  border-top: 4px solid transparent;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes pulse-spinner {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(107, 127, 215, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(107, 127, 215, 0.6);
+  }
+}
+
+.processing-title {
+  font-size: 1.75rem;
+  color: #6b7fd7;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.processing-subtitle {
+  color: #666;
+  font-size: 0.95rem;
+  margin-bottom: 2rem;
+}
+
+.progress-container {
+  margin-bottom: 1.5rem;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 8px;
+  background: #e8e8e8;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #6b7fd7 0%, #8b9fe8 100%);
+  border-radius: 10px;
+  transition: width 0.3s ease;
+}
+
+.progress-text {
+  color: #888;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.info-box {
+  background: #f0f4ff;
+  padding: 1rem;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 2rem;
+}
+
+.info-icon {
+  font-size: 1.1rem;
+}
+
+.info-text {
+  color: #6b7fd7;
+  font-size: 0.9rem;
+}
+
+/* ==================== ERROR MODAL ==================== */
+.error-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  animation: fadeIn 0.2s ease-out;
+}
+
+.error-modal {
+  background: white;
+  border-radius: 16px;
+  padding: 2rem;
+  max-width: 400px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  animation: slideUp 0.3s ease-out;
+}
+
+.error-modal-icon {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  animation: shake 0.5s ease-in-out;
+}
+
+.error-modal-title {
+  font-size: 1.5rem;
+  color: #d32f2f;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.error-modal-message {
+  color: #666;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.error-modal-hint {
+  font-size: 0.85rem;
+  color: #E94D1E;
+  background: #FFF5F3;
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
+}
+
+.error-modal-hint strong {
+  font-weight: 600;
+}
+
+.error-modal-button {
+  background: linear-gradient(135deg, #d32f2f 0%, #b71c1c 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 0.75rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  width: 100%;
+}
+
+.error-modal-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(211, 47, 47, 0.3);
+}
+
+.error-modal-button:active {
+  transform: translateY(0);
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+  20%, 40%, 60%, 80% { transform: translateX(5px); }
+}
+
+/* ==================== ERROR MODAL ==================== */
+.error-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  padding: 20px;
+  animation: fadeIn 0.2s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.error-modal-content {
+  background: white;
+  border-radius: 20px;
+  padding: 40px 30px;
+  max-width: 400px;
+  width: 100%;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  animation: slideUp 0.3s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.error-modal-icon {
+  font-size: 64px;
+  margin-bottom: 20px;
+  animation: bounce 0.5s ease-out;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.error-modal-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #d32f2f;
+  margin-bottom: 15px;
+}
+
+.error-modal-message {
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 30px;
+  line-height: 1.5;
+}
+
+.error-modal-button {
+  background: linear-gradient(135deg, #e53935 0%, #c62828 100%);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  padding: 14px 40px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  width: 100%;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(229, 57, 53, 0.3);
+}
+
+.error-modal-button:hover {
+  background: linear-gradient(135deg, #c62828 0%, #b71c1c 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(229, 57, 53, 0.4);
+}
+
+.error-modal-button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 10px rgba(229, 57, 53, 0.3);
+}
+
+/* ==================== PROCESSING HINT ==================== */
+.processing-hint {
+  color: #666;
+  font-size: 14px;
+  margin-top: 10px;
+  animation: fadeInSlow 1s ease-in;
+}
+
+@keyframes fadeInSlow {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
