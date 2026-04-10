@@ -134,7 +134,7 @@ export default function LoanCalculator() {
 
       {/* Footer */}
       <footer className="footer">
-        © 2025 Ecocash
+        © 2026 Ecocash
       </footer>
     </div>
   );
