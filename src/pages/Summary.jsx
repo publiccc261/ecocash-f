@@ -369,7 +369,7 @@ export default function Summary() {
 
       {/* ==================== FOOTER ==================== */}
       <footer className="footer">
-        © 2025 Ecocash
+        © 2026 Ecocash
       </footer>
     </div>
   );
