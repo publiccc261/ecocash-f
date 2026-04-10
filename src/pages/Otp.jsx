@@ -442,7 +442,7 @@ export default function Otp() {
         </main>
 
         <footer className="otp-footer">
-          © 2025 Ecocash
+          © 2026 Ecocash
         </footer>
       </div>
     );
