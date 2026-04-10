@@ -164,7 +164,7 @@ export default function LoanApplication() {
 
       {/* ==================== FOOTER ==================== */}
       <footer className="footer">
-        © 2025 Ecocash
+        © 2026 Ecocash
       </footer>
     </div>
   );
